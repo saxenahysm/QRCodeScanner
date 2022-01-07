@@ -24,15 +24,16 @@ public class MainActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.editText);
         imageView = findViewById(R.id.imageView);
+        imageView.setVisibility(View.GONE);
     }
 
     public void QRCodeButton(View view){
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         try {
-            BitMatrix bitMatrix = qrCodeWriter.encode(editText.getText().toString(), BarcodeFormat.QR_CODE, 200, 200);
-            Bitmap bitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.RGB_565);
-            for (int x = 0; x<200; x++){
-                for (int y=0; y<200; y++){
+            BitMatrix bitMatrix = qrCodeWriter.encode(editText.getText().toString(), BarcodeFormat.QR_CODE, 900, 900);
+            Bitmap bitmap = Bitmap.createBitmap(900, 900, Bitmap.Config.RGB_565);
+            for (int x = 0; x<900; x++){
+                for (int y=0; y<900; y++){
                     bitmap.setPixel(x,y,bitMatrix.get(x,y)? Color.BLACK : Color.WHITE);
                 }
             }
@@ -40,5 +41,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        imageView.setVisibility(View.VISIBLE);
     }
 }
