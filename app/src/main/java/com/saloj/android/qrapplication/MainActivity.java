@@ -94,29 +94,6 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Event Added To Your Calendar!", Toast.LENGTH_SHORT).show();
     }
 
-    @SuppressLint("QueryPermissionsNeeded")
-    public void addEvent(String title, String location, long begin, long end) {
-        Calendar calendar = Calendar.getInstance();
-        Calendar startcalendar = Calendar.getInstance();
-        Calendar endcalendar = Calendar.getInstance();
-        Intent intent = new Intent(Intent.ACTION_INSERT)
-                .setData(CalendarContract.Events.CONTENT_URI)
-                .putExtra(CalendarContract.Events.DESCRIPTION, "Demo for Timekompas app")
-                .putExtra(CalendarContract.Events.TITLE, title)
-                .putExtra(CalendarContract.Events.ALL_DAY, false)
-                .putExtra(Intent.EXTRA_EMAIL, "shyam@entitcs.com")
-                .putExtra(CalendarContract.Events.DTSTART, startcalendar.getTimeInMillis())
-                .putExtra(CalendarContract.Events.DTEND, endcalendar.getTimeInMillis())
-                .putExtra(CalendarContract.Events.EVENT_LOCATION, location)
-                .putExtra(CalendarContract.Events.EVENT_TIMEZONE, "GMT-05:00")
-                .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, calendar.getTimeInMillis() + 60 * 60 * 1000)
-                .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, calendar.getTimeInMillis() + 60 * 60 * 1000);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            Toast.makeText(getApplicationContext(), "There is no app that support this action", Toast.LENGTH_SHORT).show();
-        }
-    }
 
 
     public void QRCodeButton(View view) {
@@ -134,6 +111,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         imageView.setVisibility(View.VISIBLE);
-        addEvent("Demo for Selfie base attendance solution Timekompas App", "office", 06, 12);
+        startActivity(new Intent(MainActivity.this,GoogleCalenderEventActivity.class));
     }
 }
