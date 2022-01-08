@@ -11,13 +11,13 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="60dp"
+        android:layout_marginHorizontal="130dp"
         android:layout_marginTop="76dp"
+        android:gravity="center"
         android:onClick="QRCodeButton"
-        android:text="Generate QR Code"
+        android:text="Go..."
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText"
-         />
+        app:layout_constraintTop_toTopOf="@+id/editText" />
 
     <EditText
         android:id="@+id/editText"
@@ -25,13 +25,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="60dp"
         android:layout_marginTop="56dp"
+        android:autofillHints=""
         android:hint="Enter Text Here"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:autofillHints=""
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -39,10 +38,9 @@
         android:layout_height="200dp"
         android:layout_marginHorizontal="76dp"
         android:layout_marginTop="66dp"
+        android:contentDescription="Todo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
-        app:srcCompat="?attr/actionBarDivider"
-        android:contentDescription="Todo"
-        />
+        app:srcCompat="?attr/actionBarDivider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
